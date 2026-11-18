@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les Cendres d'Aldaran</title>
+<meta name="description" content="Roguelike dark fantasy au tour par tour, jouable dans le navigateur. Par MEO STUDIO.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%2307060a'/><path d='M8 2 C10 5 12 6 11 10 C10 13 6 13 5 10 C4 7 7 6 8 2Z' fill='%23f08a2c'/><path d='M8 6 C9 8 10 9 9 11 C8 12 7 11 7 10 C7 9 8 8 8 6Z' fill='%23ffe08a'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app" class="hidden">
+  <main id="stage">
+    <canvas id="game"></canvas>
+    <div id="bossbar" class="hidden"></div>
+    <div id="banner"></div>
+    <div id="log"></div>
+    <div id="hotbar"></div>
+  </main>
+  <aside id="side"></aside>
+</div>
+<div id="screen"></div>
+<div id="dialog" class="dialog hidden"></div>
+<div id="overlay" class="overlay hidden"><div id="modal"></div></div>
+<div id="toasts"></div>
+<div id="tooltip" class="hidden"></div>
+<noscript>Ce jeu nécessite JavaScript.</noscript>
+
+<script src="js/sprites.js"></script>
+<script src="js/data.js"></script>
+<script src="js/story.js"></script>
+<script src="js/dungeon.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/game.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script>
+  Sfx.init(); initSprites(); R.init(); UI.init();
+  addEventListener('beforeunload', ()=>{ if(S && !S.dead) Game.save(); });
+</script>
+</body>
+</html>
